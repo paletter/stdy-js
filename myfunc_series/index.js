@@ -4,19 +4,23 @@ window.onload = function() {
 
     console.log("-- Run onload()");
 
+    // Case 1
+    console.log("================= Case 1");
+    
     var task1 = function(callback) { console.log("-- ==== Run Task1"); if(callback) {callback();} };
     var task2 = function(callback) { console.log("-- ==== Run Task2"); if(callback) {callback();} };
     var task3 = function(callback) { console.log("-- ==== Run Task3"); if(callback) {callback();} };
     var task4 = function(callback) { console.log("-- ==== Run Task4"); if(callback) {callback();} };
+    
+    series([task1, task2, task3, task4]
+        , function(totalCount, doneCount) {
+            console.log("-- Run progressCallBack(), totalCount: " + totalCount + ", doneCount: " + doneCount);
+        }
+    );
 
-//    series([task1, task2, task3, task4]
-//        , function(totalCount, doneCount) {
-//            console.log("-- Run progressCallBack(), totalCount: " + totalCount + ", doneCount: " + doneCount);
-//        }
-//    );
-
-
-
+    // Case 2
+    console.log("================= Case 2");
+    
     var func1 = applyFunc(function() { console.log("-- ==== Run Func1"); arguments[2](); }, 1, 2);
     var func2 = applyFunc(function() { console.log("-- ==== Run Func2"); arguments[2]()}, 3, 4);
     var func3 = applyFunc(function() { console.log("-- ==== Run Func3"); arguments[2]()}, 5, 6);
