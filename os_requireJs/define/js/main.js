@@ -1,0 +1,1 @@
+require(["../asyn_module_1"]);

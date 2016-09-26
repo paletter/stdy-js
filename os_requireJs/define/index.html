@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="../require.js"></script>
+
+    <!-- 1 同步加载模式，Js内容运行完之前不会加载<body>内容 -->
+    <!--<script src="sync_module_1.js"></script>-->
+    <!--<script src="sync_module_2.js"></script>-->
+
+    <!-- 2 使用requireJs的异步加载模式 -->
+    <!--   require API标准写法：require（[name , name2],callback） -->
+    <!--   require API中的依赖类参数（第一个参数），是以引用的js本身作为根路径的 -->
+    <!--<script>-->
+        <!--require(["asyn_module_1"]);-->
+    <!--</script>-->
+
+    <!-- 3 在global_pollute_test_1.js中的js写法，里面定义的变量跟函数都是全局的，是错误的写法 -->
+    <!--   在global_pollute_test_2.js中用闭包的方法，就可以避免污染全局的情况出现 -->
+    <!--   同时，define函数作为定义模块的方法，也起到了闭包的作用，例如global_pollute_test_3.js -->
+    <!--<script src="global_pollute_test_1.js"></script>-->
+    <!--<script src="global_pollute_test_2.js"></script>-->
+    <!--<script src="global_pollute_test_3.js"></script>-->
+    <!--<script>-->
+        <!--alert(global_1);-->
+        <!--alert(global_2);-->
+        <!--alert(global_3);-->
+    <!--</script>-->
+
+    <!-- 4 用define方法定义模块，同时用require进行加载该模块 -->
+    <script>
+        require(["define_module_1"], function(defineModule1) {
+            defineModule1.show();
+            console.log(defineModule1.name);
+        });
+    </script>
+
+</head>
+<body>
+Body!
+</body>
+</html>
