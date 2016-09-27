@@ -1,0 +1,1 @@
+var global_1 = "Global Pollute 1";
