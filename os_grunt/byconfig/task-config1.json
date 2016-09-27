@@ -1,0 +1,25 @@
+{
+    "name": "grunt-test",
+    "version": "0.0.1",
+
+    "concat": {
+        "options": {
+            "separator": ";"
+        },
+        "dist": {
+            "src": ["js/grunt1.js", "js/grunt2.js"],
+            "dest": "dest/domop.js"
+        }
+    },
+
+    "uglify": {
+        "options": {
+            "stripBanners": true,
+            "banner": "/*! <%=name%>-<%=version%>.js <%=grunt.template.today('yyyy-mm-dd') %> */\n"
+        },
+        "bulid": {
+            "src": "dest/domop.js",
+            "dest": "dest/domop.min.js"
+        }
+    }
+}
