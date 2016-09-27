@@ -4,5 +4,8 @@ define(function() {
         alert("Load Define Module 1");
     };
 
-    return this;
+    return {
+        name: this.name,
+        show: this.show
+    };
 });

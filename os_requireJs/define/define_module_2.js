@@ -4,5 +4,11 @@ define(["define_module_1.js"], function(defineModule1) {
         alert("Load Define Module 2");
     };
 
-    return this;
+    defineModule1.show();
+    console.log(defineModule1.name);
+
+    return {
+        name: this.name,
+        show: this.show
+    };
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <script src="../require.js"></script>
+    <!--<script src="../require.js"></script>-->
 
     <!-- 1 同步加载模式，Js内容运行完之前不会加载<body>内容 -->
     <!--<script src="sync_module_1.js"></script>-->
@@ -30,15 +30,37 @@
     <!--</script>-->
 
     <!-- 4 用define方法定义模块，同时用require进行加载该模块 -->
-    <script>
-        require(["define_module_1"], function(defineModule1) {
-            defineModule1.show();
-            console.log(defineModule1.name);
-        });
-    </script>
+    <!--<script>-->
+        <!--require(["define_module_1"], function(defineModule1) {-->
+            <!--defineModule1.show();-->
+            <!--console.log(defineModule1.name);-->
+        <!--});-->
+
+        <!--require(["define_module_2"], function(defineModule2) {-->
+            <!--defineModule2.show();-->
+            <!--console.log(defineModule2.name);-->
+        <!--});-->
+    <!--</script>-->
+
+    <!-- 5 使用require.config定义加载模块 -->
+    <!--<script>-->
+        <!--require.config({-->
+            <!--paths: {-->
+                <!--"jquery": ["http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.1.min"]-->
+            <!--}-->
+        <!--});-->
+
+        <!--require(["jquery"], function($) {-->
+            <!--alert($("#jqueryDiv").text());-->
+        <!--});-->
+    <!--</script>-->
+
+    <!-- 6 使用data-main属性加载js -->
+    <script data-main="js/main" src="../require.js"></script>
 
 </head>
 <body>
 Body!
+<div id="jqueryDiv">I'm JQuery Div.</div>
 </body>
 </html>
