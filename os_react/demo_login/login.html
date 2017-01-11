@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/browser.min.js"></script>
+
+</head>
+<body>
+<div id="main">
+</div>
+
+<script type="text/babel">
+    var LoginModule = React.createClass({
+        login: function() {
+            if(this.refs.name.value == "James" && this.refs.pwd.value == "123456") {
+                alert("SUCCESS!");
+            } else {
+                alert("FAIL!");
+            }
+        },
+        render: function() {
+            return (
+                <div>
+                    <div className="row col-md-8">
+                        <div className="form-group col-md-3">
+                            <label>Name</label>
+                            <input type="text" className="form-control" ref="name" placeholder="James" />
+                        </div>
+                    </div>
+                    <div className="row col-md-8">
+                        <div className="form-group col-md-3">
+                            <label>Password</label>
+                            <input type="password" className="form-control" ref="pwd" placeholder="123456" />
+                        </div>
+                    </div>
+                    <div className="row col-md-8">
+                        <div className="col-md-3">
+                            <button className="btn btn-default" ref="login" onClick={this.login}>Login</button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<LoginModule />, document.getElementById("main"));
+</script>
+
+</body>
+</html>

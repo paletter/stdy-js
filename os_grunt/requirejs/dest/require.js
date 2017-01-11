@@ -1,0 +1,1 @@
+define("js/module/module1",[],function(){this.name="Module 1",console.log("Load %s",this.name),alert("Load Module 1")}),require(["./module/module1"],function(e){console.log("Load Finish"),alert("Load Finish")}),define("js/main.js",function(){});

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+
+</head>
+<body>
+Hello!
+<p>JSX: React特有的JSX语法，与JS不兼容。凡是使用 JSX 的地方，都要加上 type="text/babel"。</p>
+<p>browser.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。</p>
+<p>转换命令：babel src --out-dir build</p>
+<p>该命令可以将 src 子目录的 js 文件进行语法转换，转码后的文件全部放在 build 子目录。</p>
+<div id="main">Repeat</div>
+<script type="text/babel">
+
+    var Counter = React.createClass({
+        getInitialState: function() {
+            return { count: 0 };
+        },
+        handleClick: function() {
+            this.setState({
+                count: this.state.count + 1
+            });
+        },
+        render: function() {
+            return (
+                <button onClick={this.handleClick}>
+                    Click me! Number of clicks: {this.state.count}
+                </button>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <Counter />,
+        document.getElementById("main")
+    );
+</script>
+</body>
+
+</html>

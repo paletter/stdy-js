@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <!--<script src="https://unpkg.com/react@15.4.0/dist/react.js"></script>-->
+    <!--<script src="https://unpkg.com/react-dom@15.4.0/dist/react-dom.js"></script>-->
+
+</head>
+<body>
+Hello!
+<div id="main">Repeat</div>
+<script>
+
+    var FirstApplication = React.createClass({
+        render: function() {
+            var elapsed = Math.round(this.props.elapsed / 100);
+            var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0');
+            var message = seconds;
+
+            return React.DOM.p(null, message);
+        }
+    });
+
+    var FirstApplicationFactory = React.createFactory(FirstApplication);
+
+    var start = new Date().getTime();
+    setInterval(function() {
+        ReactDOM.render(
+            FirstApplicationFactory({elapsed: new Date().getTime() - start}),
+            document.getElementById("main")
+        );
+    }, 50);
+</script>
+</body>
+
+</html>
