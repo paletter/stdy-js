@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic</title>
+    <script src="/page.js"></script>
+    <script src="/router.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>Index</h1>
+    <p></p>
+    <ul>
+      <li><a href="/welcome">welcome</a></li>
+    </ul>
+    <section id="content">
+
+    </section>
+  </body>
+  <script>
+
+    // page.base(location.pathname.replace('/partials/', ''));
+
+    page('*', init.ctx);
+    page('/welcome', route.welcome);
+    page('*', render.content);
+    page();
+
+  </script>
+</html>

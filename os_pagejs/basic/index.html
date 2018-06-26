@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic</title>
+    <script src="/page.js"></script>
+  </head>
+  <body>
+    <h1>Index</h1>
+    <p></p>
+    <ul>
+      <li><a href="/index">index</a></li>
+      <li><a href="/welcome">welcome</a></li>
+    </ul>
+  </body>
+  <script>
+
+    // page.base('/basic');
+
+    page('/index', index);
+    page('/welcome', welcome);
+    page();
+
+    function index() {
+      document.querySelector('p')
+        .textContent = 'viewing index';
+    }
+
+    function welcome() {
+      document.querySelector('p')
+        .textContent = 'viewing welcome';
+    }
+
+  </script>
+</html>
